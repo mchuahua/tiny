@@ -9,6 +9,8 @@ import tensorflow as tf
 assert tf.__version__.startswith('2')
 from keras import Model
 from video import get_images
+import numpy as np
+
 
 MODEL_PATH = "trained_models/vww_96.h5"
 IMAGE_SIZE = 96
@@ -68,3 +70,10 @@ for image, label in data:
     # tf.print(out[1]-out[2], summarize=-1)
     # tf.print(out[0]-out[1], summarize=-1)
     # tf.print(inp[0]-inp[1], summarize=-1)
+
+np.save('./output_file', out) 
+np.save('./input_file', inp) 
+
+# out = np.load('./output_file.npy') 
+# inp = np.load('./input_file.npy') 
+
